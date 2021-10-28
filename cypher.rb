@@ -1,32 +1,34 @@
+#!/usr/bin/env ruby
 #encoding: utf-8
 
 require "Digest"
-require_relative "methods.rb"
+# require_relative "methods.rb"
 
-puts "Введите строку для кодировки:\n"
+algorithms = {
+  'md5' => Digest("MD5"),
+  'sha1'=> Digest("SHA1"),
+}
+if (ARGV[0] && ARGV[1]) then
+  puts "#{ARGV[0]} #{algorithms[ARGV[0]].hexdigest(ARGV[1])}"
+else
+  puts "Enter string to cypher:\n"
 
-user_input = STDIN.gets.chomp
+  user_input = STDIN.gets.chomp.gsub(/[ +]/, '_')   
 
-puts "Какую систему шифрования выбрать:
-1. MD5
-2. SHA1
-?"
-
-user_option = STDIN.gets.chomp.to_i
-
-#cls
-
-while user_option do
-
-  if user_option == 1
-    puts "Ваша шифрованная строка в MD5: \n" + Digest::MD5.hexdigest(user_input) + "."
-    break
-  elsif user_option == 2
-    puts "Ваша шифрованная строка в SHA1:\n" + Digest::SHA1.hexdigest(user_input) + "."
-    break
-  else
-    puts "Выберите метод шифрования из списка."
-  end
+  puts "Choose Algorithm:
+  1. MD5
+  2. SHA1
+  ?"
+  user_option = STDIN.gets.chomp.to_i
+  while user_option do
+      if user_option == 1
+        puts "MD5: \n" + Digest::MD5.hexdigest(user_input) + "."
+        break
+      elsif user_option == 2
+        puts "SHA1:\n" + Digest::SHA1.hexdigest(user_input) + "."
+        break
+      else
+        puts "Выберите метод шифрования из списка."
+      end
+    end
 end
-
-puts "Goodbye!"
