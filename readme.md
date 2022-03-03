@@ -12,6 +12,6 @@ For Mac OS Mojave do as follows
 6. Relaunch terminal ad type cypher to start
 
 # Modes
-Script has two modes - verbose, which suggests steps to get your hashes and fast. To init verbose path just launch `cypher` command from anywhere from terminal window. To start seconds option just provide first and second arguments, where first argument is an algorithm type ('md5' or 'sha1') and second argument is a word(no spaces)
+Script has two modes - verbose, which suggests steps to get your hashes and fast. To init verbose path just launch `cypher` command from anywhere from terminal window. To start seconds option just provide first and second arguments, where first argument is an algorithm type ('md5' or 'sha1') and second argument is a word( no spaces )
 
 ### Handy for quick random strings to generate a unique id
